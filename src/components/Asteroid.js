@@ -2,11 +2,8 @@ import React from 'react';
 import {
   SafeAreaView,
   StyleSheet,
-  Image,
   TextInput,
   Dimensions,
-  FlatList,
-  TouchableHighlight,
   View,
   Text,
   StatusBar,
