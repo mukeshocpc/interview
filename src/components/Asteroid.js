@@ -12,7 +12,6 @@ import {
   StatusBar,
 } from 'react-native';
 const {height, width} = Dimensions.get('window');
-//https://restcountries.eu/rest/v2/name/india
 const apiKey="vQ438WTF06U3qAjryMGqp3M286Wgqg5IcWwLyYXT"
 export default class Asteroid extends React.Component {
   state = {
@@ -25,14 +24,6 @@ export default class Asteroid extends React.Component {
     this.setState({asteroid: asteroid});
     let response = await this.fetchAsteroid(asteroid);
     this.setState({data: response});
-    console.log(response)
-    // if ('message' in repsonse) {
-    //   this.setState({error: repsonse.message});
-    // } else {
-    //   this.setState({asteroid: repsonse});
-    // }
-
-    //console.log(repsonse.status);
   };
 
   fetchAsteroid = async (asteroid) => {

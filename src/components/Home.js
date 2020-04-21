@@ -16,6 +16,9 @@ export default class Home extends React.Component {
   state = {
     text: '',
   };
+
+
+
   onChangeText = (text) => {
     this.setState({text});
   };
@@ -25,21 +28,18 @@ export default class Home extends React.Component {
   getRandomAsteroid =async()=>{
     const {navigate} = this.props.navigation;
     try{
-      let response= await this.fetchRandomAsteroid()
-      let id=response.near_earth_objects[this.getRandomInt(0,response.near_earth_objects.length)].id
-      navigate('Asteroid', {asteroid: id})
+        let response= await this.fetchRandomAsteroid()
+        let id=response.near_earth_objects[this.getRandomInt(0,response.near_earth_objects.length)].id
+        navigate('Asteroid', {asteroid: id})
     }
-      catch(e){
+    catch(e){
         console.log(e)
     }   
   }
 
 
   fetchRandomAsteroid = async () => {
-    const response = await fetch(
-      `https://api.nasa.gov/neo/rest/v1/neo/browse?api_key=DEMO_KEY`,
-      {},
-    );
+    const response = await fetch(`https://api.nasa.gov/neo/rest/v1/neo/browse?api_key=DEMO_KEY`,{});
     const json = await response.json();
     return json;
   };
